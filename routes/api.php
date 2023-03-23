@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('test', function () {
-    return response('This is working', 200);
-});
+Route::post('register', [\App\Http\Controllers\API\AuthController::class, 'register']);
+Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [\App\http\Controllers\API\AuthController::class, 'logout']);
+    Route::get('inside-mware', function () {
+        return response()->json('Success', 200);
+    });
 });
