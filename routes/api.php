@@ -18,7 +18,12 @@ Route::post('register', [\App\Http\Controllers\API\AuthController::class, 'regis
 Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('logout', [\App\http\Controllers\API\AuthController::class, 'logout']);
+
+    Route::get('users/{id}', [\App\Http\Controllers\API\UserController::class, 'show']);
+    Route::put('users/{id}', [\App\Http\Controllers\API\UserController::class, 'update']);
+
+    Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
+
     Route::get('inside-mware', function () {
         return response()->json('Success', 200);
     });
