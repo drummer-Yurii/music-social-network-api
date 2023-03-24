@@ -13,5 +13,5 @@ class Song extends Model
         'user_id',
         'title',
         'song',
-    ]
+    ];
 }

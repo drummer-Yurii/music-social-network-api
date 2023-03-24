@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Request\Song\StoreSongRequest;
+use App\Http\Requests\Song\StoreSongRequest;
 use App\Models\Song;
 use App\Models\User;
 
