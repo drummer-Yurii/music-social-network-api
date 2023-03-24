@@ -22,9 +22,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('users/{id}', [\App\Http\Controllers\API\UserController::class, 'show']);
     Route::put('users/{id}', [\App\Http\Controllers\API\UserController::class, 'update']);
 
+    Route::post('songs', [\App\Http\Controllers\API\SongController::class, 'store']);
+    Route::delete('songs/{id}/{user_id}', [\App\Http\Controllers\API\SongController::class, 'destroy']);
+
     Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 
-    Route::get('inside-mware', function () {
-        return response()->json('Success', 200);
-    });
 });
