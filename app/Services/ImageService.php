@@ -19,13 +19,13 @@ class ImageService
         }
 
         $file = $request->file('image');
-        $extension = $file->getClientOriginalExtention();
+        $extension = $file->getClientOriginalExtension();
 
         $image->crop(
             $request->width,
             $request->height,
             $request->left,
-            $request->top,
+            $request->top
         );
 
         $name = time() . '.' . $extension;
