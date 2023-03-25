@@ -25,6 +25,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('songs', [\App\Http\Controllers\API\SongController::class, 'store']);
     Route::delete('songs/{id}/{user_id}', [\App\Http\Controllers\API\SongController::class, 'destroy']);
 
+    Route::get('user/{user_id}/songs', [\App\Http\Controllers\API\SongsByUserController::class, 'index']);
+
     Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 
 });
