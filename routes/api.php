@@ -31,6 +31,12 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('user/{user_id}/songs', [\App\Http\Controllers\API\SongsByUserController::class, 'index']);
 
+    Route::get('posts', [\App\Http\Controllers\API\PostController::class, 'index']);
+    Route::get('posts/{id}', [\App\Http\Controllers\API\PostController::class, 'show']);
+    Route::post('posts', [\App\Http\Controllers\API\PostController::class, 'store']);
+    Route::put('posts/{id}', [\App\Http\Controllers\API\PostController::class, 'update']);
+    Route::delete('posts/{id}', [\App\Http\Controllers\API\PostController::class, 'destroy']);
+
     Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 
 });
