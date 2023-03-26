@@ -37,6 +37,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('posts/{id}', [\App\Http\Controllers\API\PostController::class, 'update']);
     Route::delete('posts/{id}', [\App\Http\Controllers\API\PostController::class, 'destroy']);
 
+    Route::get('user/{user_id}/posts', [\App\Http\Controllers\API\PostsByUserController::class, 'show']);
+
     Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 
 });
