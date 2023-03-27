@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         try {
-            $postsPerPage = 10;
+            $postsPerPage = 3;
             $post = Post::with('user')->orderBy('updated_at', 'desc')->simplePaginate($postsPerPage);
             $pageCount = count(Post::all()) / $postsPerPage;
 
@@ -27,7 +27,7 @@ class PostController extends Controller
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
-                'message' => 'Something went wrong in PostController.show',
+                'message' => 'Something went wrong in PostController.index',
                 'error' => $e->getMessage()
             ], 400);
         }
@@ -70,7 +70,7 @@ class PostController extends Controller
         try {
             $post = Post::with('user')->findOrFail($id);
 
-            return response()->json('New post created', 200);
+            return response()->json($post, 200);
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Something went wrong in PostController.show',
